@@ -1,6 +1,6 @@
 module.exports = {
 	entry: {
-		main:[
+		main: [
 			'./script1.js',
 			'./script2.js'
 		]

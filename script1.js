@@ -1,2 +1,1 @@
-var message = require('./script1');
-document.write(message);
+module.exports = 'module 1 export';
