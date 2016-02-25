@@ -7,5 +7,14 @@ module.exports = {
 	},
 	output: {
 		filename: './public/[name].js'
+	},
+	module: {
+		loaders: [
+			{
+				test: /\.js$/,
+				exclude: /node_mdules/,
+				loader: 'babel'
+			}
+		]
 	}
 }

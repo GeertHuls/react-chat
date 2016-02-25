@@ -18,6 +18,8 @@
   "author": "Geert Huls",
   "license": "ISC",
   "dependencies": {
+    "babel-core": "^6.5.2",
+    "babel-loader": "^6.2.3",
     "webpack": "^1.12.13"
   }
 }
