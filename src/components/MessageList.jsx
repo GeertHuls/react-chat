@@ -14,7 +14,7 @@ class MessageList extends React.Component {
 		};
 
 		this.firebaseRef = firebaseRef;
-		this.firebaseRef.once("value", (dataSnapshot) => {
+		this.firebaseRef.on("value", (dataSnapshot) => {
 			var messagesVal = dataSnapshot.val();
 			var messages = _(messagesVal)
 				.keys()
