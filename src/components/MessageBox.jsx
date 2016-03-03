@@ -1,11 +1,32 @@
 import React from 'react';
 import mui from 'material-ui';
+import trim from 'trim';
 
 var {Card} = mui;
 
 class MessageBox extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			message: ''
+		};
+	}
+
+	onChange(evt) {
+		this.setState({
+			message: evt.target.value
+		});
+	}
+
+	onKeyUp(evt) {
+		if(evt.keyCode === 13 & trim(evt.target.value) !== '') {
+			evt.preventDefault();
+			this.setState({
+				message: ''
+			});
+
+			console.log('Sent a new message' + evt.target.value);
+		}
 	}
 
 	render() {
@@ -15,16 +36,20 @@ class MessageBox extends React.Component {
 				margin: '30px auto',
 				padding: 30
 			}}>
-				<textarea style={{
-					width: '100%',
-					borderColor: '#D0D0D0',
-					resize: 'none',
-					borderRedius: 3,
-					minHeight: 50,
-					color: '#555',
-					fontSize: 14,
-					outline: 'auto 0px'
-				}}/>
+				<textarea
+					value={this.state.message}
+					onChange={this.onChange.bind(this)}
+					onKeyUp={this.onKeyUp.bind(this)}
+					style={{
+						width: '100%',
+						borderColor: '#D0D0D0',
+						resize: 'none',
+						borderRedius: 3,
+						minHeight: 50,
+						color: '#555',
+						fontSize: 14,
+						outline: 'auto 0px'
+					}}/>
 			</Card>
 		);
 	}
