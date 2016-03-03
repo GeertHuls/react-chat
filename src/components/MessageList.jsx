@@ -1,7 +1,7 @@
 import React from 'react';
 import Message from './Message.jsx';
 import mui from 'material-ui';
-import Firbase from 'firebase';
+import firebaseRef from '../firebaseRef';
 import _ from 'lodash';
 
 var {Card, List} = mui;
@@ -13,7 +13,7 @@ class MessageList extends React.Component {
 			messages: []
 		};
 
-		this.firebaseRef = new Firebase('xxx');
+		this.firebaseRef = firebaseRef;
 		this.firebaseRef.once("value", (dataSnapshot) => {
 			var messagesVal = dataSnapshot.val();
 			var messages = _(messagesVal)

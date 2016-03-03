@@ -1,6 +1,7 @@
 import React from 'react';
 import mui from 'material-ui';
 import trim from 'trim';
+import firebaseRef from '../firebaseRef';
 
 var {Card} = mui;
 
@@ -10,6 +11,8 @@ class MessageBox extends React.Component {
 		this.state = {
 			message: ''
 		};
+
+		this.firebaseRef = firebaseRef;
 	}
 
 	onChange(evt) {
@@ -21,11 +24,14 @@ class MessageBox extends React.Component {
 	onKeyUp(evt) {
 		if(evt.keyCode === 13 & trim(evt.target.value) !== '') {
 			evt.preventDefault();
+			
+			this.firebaseRef.push({
+				message: this.state.message
+			});
+
 			this.setState({
 				message: ''
 			});
-
-			console.log('Sent a new message' + evt.target.value);
 		}
 	}
 

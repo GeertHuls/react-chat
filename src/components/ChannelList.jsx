@@ -19,7 +19,6 @@ class ChannelList extends React.Component {
 		var channelNodes = this.state.channels.map((channel) => {
 			return (
 				<Channel channel={channel} />
-				
 			);
 		});
 
