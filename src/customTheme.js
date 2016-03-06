@@ -1,6 +1,6 @@
 import Colors from 'material-ui/lib/styles/colors';
 
-//Check site for different types of color:
+//Check site for different types of colors:
 //http://www.material-ui.com/#/customization/colors
 export default {
 	palette: {
