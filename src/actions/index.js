@@ -5,7 +5,6 @@ import firebaseRef from '../firebaseRef'
 class Actions {
 	login(args) {
 		return (dispatch) => {
-			var firebaseRef = firebaseRef;
 			firebaseRef.authWithOAuthPopup("google", (error, user) => {
 				if(error) {
 					return;
