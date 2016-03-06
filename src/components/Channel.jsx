@@ -10,7 +10,7 @@ class Channel extends React.Component {
 
 	render() {
 		return (
-			<ListItem>{this.props.channel}</ListItem>
+			<ListItem>{this.props.channel.name}</ListItem>
 		);
 	}
 }

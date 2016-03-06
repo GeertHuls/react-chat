@@ -1,11 +1,18 @@
 import alt from '../alt';
 import Firebase from 'firebase';
-import firebaseRef from '../firebaseRef'
+import firebaseRefFactory from '../firebaseRefFactory'
 
 class Actions {
+	constructor() {
+		this.generateActions(
+			'channelsReceived',
+			'channelsFailed'
+		);
+	}
+
 	login(args) {
 		return (dispatch) => {
-			firebaseRef.authWithOAuthPopup("google", (error, user) => {
+			firebaseRefFactory().authWithOAuthPopup("google", (error, user) => {
 				if(error) {
 					return;
 				}
