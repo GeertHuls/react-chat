@@ -1,7 +1,8 @@
 import React from 'react';
 import Message from './Message.jsx';
 import mui from 'material-ui';
-import firebaseRef from '../firebaseRef';
+import firebaseRefFactory from '../firebaseRefFactory';
+
 import _ from 'lodash';
 
 var {Card, List} = mui;
@@ -13,7 +14,7 @@ class MessageList extends React.Component {
 			messages: {}
 		};
 
-		this.firebaseRef = firebaseRef;
+		this.firebaseRef = firebaseRefFactory('messages');
 		this.firebaseRef.on("child_added", (msg) => {
 			if(this.state.messages[msg.key()]) {
 				return;

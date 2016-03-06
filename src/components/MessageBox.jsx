@@ -1,7 +1,7 @@
 import React from 'react';
 import mui from 'material-ui';
 import trim from 'trim';
-import firebaseRef from '../firebaseRef';
+import firebaseRefFactory from '../firebaseRefFactory';
 
 var {Card} = mui;
 
@@ -12,7 +12,7 @@ class MessageBox extends React.Component {
 			message: ''
 		};
 
-		this.firebaseRef = firebaseRef;
+		this.firebaseRef = firebaseRefFactory('messages');
 	}
 
 	onChange(evt) {
