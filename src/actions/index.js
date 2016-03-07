@@ -6,7 +6,9 @@ class Actions {
 	constructor() {
 		this.generateActions(
 			'channelsReceived',
-			'channelsFailed'
+			'channelsFailed',
+			'messagesReceived',
+			'messagesFailed'
 		);
 	}
 
