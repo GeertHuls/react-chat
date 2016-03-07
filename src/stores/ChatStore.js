@@ -27,6 +27,24 @@ class ChatStore {
 		});
 	}
 
+	@bind(Actions.channelOpened)
+	channelOpened(selectedChannel) {
+		_(this.state.channels)
+			.values()
+			.forEach((channel) => {
+				channel.selected = false;
+			});
+
+		selectedChannel.selected = true;
+
+		this.setState({
+			selectedChannel,
+			channels: this.state.channels
+		});
+
+		setTimeout(this.getInstance().getMessages, 100);
+	}
+
 	@bind(Actions.channelsReceived)
 	receivedChannels(channels) {
 		let selectedChannel;
