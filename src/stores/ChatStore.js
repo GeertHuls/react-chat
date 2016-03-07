@@ -9,7 +9,18 @@ import _ from 'lodash';
 @decorate(alt)
 class ChatStore {
 	constructor(){
-		this.state= {user: null, message: null};
+		this.state= {
+			user: null,
+			message: null,
+			messagesLoading: true
+		};
+	}
+
+	@bind(Actions.messagesLoading)
+	messagesLoading() {
+		this.setState({
+			messagesLoading: true
+		});
 	}
 
 	@bind(Actions.messagesReceived)
@@ -23,7 +34,8 @@ class ChatStore {
 		//Notify all components that are subscribed to this store
 		//and allow them to rerender
 		this.setState({
-			messages
+			messages,
+			messagesLoading: false
 		});
 	}
 
