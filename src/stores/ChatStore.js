@@ -39,6 +39,12 @@ class ChatStore {
 		});
 	}
 
+	@bind(Actions.sendMessage)
+	sendMessage(message) {
+		this.state.message = message;
+		setTimeout(this.getInstance().sendMessage, 10);
+	}
+
 	@bind(Actions.channelOpened)
 	channelOpened(selectedChannel) {
 		_(this.state.channels)
