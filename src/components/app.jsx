@@ -1,29 +1,14 @@
 import React from 'react';
-import Chat from './Chat.jsx'
-import Login from './Login.jsx';
 import mui from 'material-ui';
-import connectToStores from 'alt-utils/lib/connectToStores';
-import ChatStore from '../stores/ChatStore';
 
 import ThemeManager from 'material-ui/lib/styles/theme-manager';
 import CustomTheme from '../customTheme';
 
 var AppBar = mui.AppBar;
 
-@connectToStores
 class App extends React.Component {
 	constructor() {
 		super();
-	}
-
-	static getStores() {
-		return [ChatStore];
-	}
-
-	static getPropsFromStores() {
-		//this statement will initiliaze the this.props.user object
-		//for usage later on.
-		return ChatStore.getState();
 	}
 
 	static childContextTypes = {
@@ -37,16 +22,10 @@ class App extends React.Component {
 	}
 
 	render() {
-		var view = <Login />;
-
-		if (this.props.user) {
-			view = <Chat />;
-		}
-
 		return (
 			<div>
 				<AppBar title="React chat app" />
-				{view}
+				{this.props.children}
 			</div>
 		);
 	}
