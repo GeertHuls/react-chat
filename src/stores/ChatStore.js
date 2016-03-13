@@ -47,6 +47,10 @@ class ChatStore {
 
 	@bind(Actions.messageReceived)
 	messageReceived(msg) {
+		if(!this.state.messages) {
+			return;
+		}
+
 		if(this.state.messages[msg.key]) {
 			return;
 		}
