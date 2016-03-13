@@ -8,11 +8,14 @@ var {
     RaisedButton
 } = mui;
 
-
 class Login extends React.Component {
 
     onClick(){
-      Actions.login();
+      Actions.login(this.context.router);
+    }
+
+    static contextTypes = {
+      router: React.PropTypes.object.isRequired
     }
 
     render(){

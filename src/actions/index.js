@@ -18,7 +18,7 @@ class Actions {
 		);
 	}
 
-	login(args) {
+	login(router) {
 		return (dispatch) => {
 			firebaseRefFactory().authWithOAuthPopup("google", (error, user) => {
 				if(error) {
@@ -26,6 +26,8 @@ class Actions {
 				}
 
 				dispatch(user);
+
+				router.push('/chat');
 			});
 		};
 	}
