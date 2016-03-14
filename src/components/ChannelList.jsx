@@ -12,10 +12,22 @@ var {Card, List, CircularProgress} = mui;
 class ChannelList extends React.Component {
 	constructor(props) {
 		super(props);
+	}
+
+	componentDidMount() {
+		this.selectedChannel = this.props.params.channel;
+	
 		//getChannels method actually belongs to the ChannelSource class
 		//but using the datasource attribute, it gets attached to the ChatStore
 		//store as well.
-		ChatStore.getChannels();
+		ChatStore.getChannels(this.selectedChannel);
+	}
+
+	componentWillReceiveProps(nextProps) {
+		if (this.selectedChannel != nextProps.params.channel) {
+			this.selectedChannel = nextProps.params.channel;
+			ChatStore.getChannels(this.selectedChannel);
+		}
 	}
 
 	//Implement getStores function so that alt can wire up 

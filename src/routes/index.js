@@ -25,6 +25,7 @@ let routes = (
  		<Route path="/" component={App}>
  			<IndexRoute component={Chat} onEnter={requireAuth}/>
 			<Route path="/chat" component={Chat} onEnter={requireAuth} />
+			<Route path="/chat/:channel" component={Chat} onEnter={requireAuth} />
 			<Route path="/login" component={Login} />
 		</Route>
 	</Router>

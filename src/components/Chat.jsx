@@ -15,7 +15,7 @@ class Chat extends React.Component {
 					width: '100%',
 					margin: '30px auto 30px'
 				}}>
-					<ChannelList />
+					<ChannelList {...this.props} />
 					<MessageList />
 				</div>
 				<MessageBox />
@@ -23,5 +23,9 @@ class Chat extends React.Component {
 		);
 	}
 }
+
+//{...this.props} = the ES7 spread operator
+// it send its props down to the child component
+// otherwise you'd had to write something like this: channel={this.props.params.channel}
 
 export default Chat;
